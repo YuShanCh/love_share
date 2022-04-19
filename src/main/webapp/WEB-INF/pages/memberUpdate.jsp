@@ -96,27 +96,9 @@ textarea {
 			<div class="container">
 
 				<div class="zi_box_1">
-					<form class="container" action="updatemember.controller"
+					<form action="updatemember.controller" class="row g-3"
 						method="post" enctype="multipart/form-data">
-						<div id="top">
-							<img id="imgInsert" name="img" src="images/head.png"
-								style="width: 30%; height: 7%;"><br> <input
-								type="file" name="aavatar" accept="image/*"
-								onchange="loadFile(event)" required><span
-								id="spImgInsert"></span>
-						</div>
-						<script>
-							var loadFile = function(event) {
-								var output = document
-										.getElementById('imgInsert');
-								output.src = URL
-										.createObjectURL(event.target.files[0]);
-								output.onload = function() {
-									URL.revokeObjectURL(output.src)
-								}
-							};
-						</script>
-						<br>
+						<div class="col-md-12"></div>
 						<div class="col-md-12">
 							<div class="input-group mb-3">
 								<span class="input-group-text" id="inputGroup-sizing-default">輸入Email:</span>

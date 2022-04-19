@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
-@Service("memberService")
+@Service("MemberService")
 @Transactional
 public class MemberService {
 

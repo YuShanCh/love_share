@@ -24,7 +24,7 @@
 
             <div>成功!</div>
             <br>
-            <a href="empMember.controller">確認</a>
+            <a href="index">確認</a>
     </form>
 </body>
 

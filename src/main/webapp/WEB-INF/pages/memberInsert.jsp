@@ -88,116 +88,103 @@ textarea {
 <body>
 <body>
 
-	<div class="container">
+	<div class="page-wrapper chiller-theme toggled">
 
-		<div class="zi_box_1">
-			<form class="container" action="insertmember.controller"
-				method="post" enctype="multipart/form-data">
-				<div id="top">
-					<img id="imgInsert" name="img" src="images/head.png"
-						style="width: 30%; height: 7%;"><br> <input type="file"
-						name="aavatar" accept="image/*" onchange="loadFile(event)"
-						required><span id="spImgInsert"></span>
+		<main class="page-content">
+			<div class="container">
+
+				<div class="zi_box_1">
+					<form action="insertmember.controller" class="row g-3"
+						method="post" enctype="multipart/form-data">
+						<div class="col-md-12"></div>
+						<div class="col-md-12">
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-default">Email:</span>
+								<input type="text" class="form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" name="aid"
+									id="a_id" onblur="checkForm()" /><span id="mesg"></span><br>
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-default">密碼:</span>
+								<input type="text" class="form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" name="apassword"
+									id="a_password" onblur="checkForm()" /><span id="mesg"></span><br>
+							</div>
+						</div>
+
+
+
+						<div class="col-md-12">
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-default">姓名:</span>
+								<input type="text" class="form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" name="aname"
+									id="a_name" onblur="checkForm()" /><span id="mesg"></span><br>
+							</div>
+						</div>
+
+
+						<div class="col-md-12">
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-default">電話:</span>
+								<input type="text" class="form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" name="aphone"
+									id="a_phone" onblur="checkForm()" /><span id="mesg"></span><br>
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-default">生日:</span>
+								<input type="date" class="form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" name="abirthday"
+									id="a_birthday" onblur="checkForm()" /><span id="mesg"></span><br>
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-default">地址:</span>
+								<input type="text" class="form-control"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default" name="aaddress"
+									id="a_address" onblur="checkForm()" /><span id="mesg"></span><br>
+							</div>
+						</div>
+
+
+						<div class="col-12">
+							<button type="submit" value="Add" class="btn btn-primary">註冊</button>
+						</div>
+					</form>
 				</div>
-				<script>
-					var loadFile = function(event) {
-						var output = document.getElementById('imgInsert');
-						output.src = URL.createObjectURL(event.target.files[0]);
-						output.onload = function() {
-							URL.revokeObjectURL(output.src)
-						}
-					};
-				</script>
-				<br>
-				<div class="col-md-12">
-					<div class="input-group mb-3">
-						<span class="input-group-text" id="inputGroup-sizing-default">Email:</span>
-						<input type="text" class="form-control"
-							aria-label="Sizing example input"
-							aria-describedby="inputGroup-sizing-default" name="aid" id="a_id"
-							onblur="checkForm()" /><span id="mesg"></span><br>
-					</div>
-				</div>
+			</div>
+			<script
+				src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+				integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+				crossorigin="anonymous"></script>
+			<!-- fontawesome javascript  -->
+			<script src="https://kit.fontawesome.com/1a950be563.js"
+				crossorigin="anonymous"></script>
+			<!-- tw zipcode   -->
+			<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+			<script
+				src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 
-				<div class="col-md-12">
-					<div class="input-group mb-3">
-						<span class="input-group-text" id="inputGroup-sizing-default">密碼:</span>
-						<input type="text" class="form-control"
-							aria-label="Sizing example input"
-							aria-describedby="inputGroup-sizing-default" name="apassword"
-							id="a_password" onblur="checkForm()" /><span id="mesg"></span><br>
-					</div>
-				</div>
-
-
-
-				<div class="col-md-12">
-					<div class="input-group mb-3">
-						<span class="input-group-text" id="inputGroup-sizing-default">姓名:</span>
-						<input type="text" class="form-control"
-							aria-label="Sizing example input"
-							aria-describedby="inputGroup-sizing-default" name="aname"
-							id="a_name" onblur="checkForm()" /><span id="mesg"></span><br>
-					</div>
-				</div>
-
-
-				<div class="col-md-12">
-					<div class="input-group mb-3">
-						<span class="input-group-text" id="inputGroup-sizing-default">電話:</span>
-						<input type="text" class="form-control"
-							aria-label="Sizing example input"
-							aria-describedby="inputGroup-sizing-default" name="aphone"
-							id="a_phone" onblur="checkForm()" /><span id="mesg"></span><br>
-					</div>
-				</div>
-
-				<div class="col-md-12">
-					<div class="input-group mb-3">
-						<span class="input-group-text" id="inputGroup-sizing-default">生日:</span>
-						<input type="date" class="form-control"
-							aria-label="Sizing example input"
-							aria-describedby="inputGroup-sizing-default" name="abirthday"
-							id="a_birthday" onblur="checkForm()" /><span id="mesg"></span><br>
-					</div>
-				</div>
-
-				<div class="col-md-12">
-					<div class="input-group mb-3">
-						<span class="input-group-text" id="inputGroup-sizing-default">地址:</span>
-						<input type="text" class="form-control"
-							aria-label="Sizing example input"
-							aria-describedby="inputGroup-sizing-default" name="aaddress"
-							id="a_address" onblur="checkForm()" /><span id="mesg"></span><br>
-					</div>
-				</div>
-
-
-				<div class="col-12">
-					<button type="submit" value="Add" class="btn btn-primary">註冊</button>
-				</div>
-			</form>
-		</div>
-	</div>
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
-		crossorigin="anonymous"></script>
-	<!-- fontawesome javascript  -->
-	<script src="https://kit.fontawesome.com/1a950be563.js"
-		crossorigin="anonymous"></script>
-	<!-- tw zipcode   -->
-	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
-
-	<!--datatable js -->
-	<script
-		src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-	<script
-		src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+			<!--datatable js -->
+			<script
+				src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+			<script
+				src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+			<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+			
 </body>
 </html>

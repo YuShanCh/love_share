@@ -7,7 +7,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import of.member.model.Member;
+import of.Institution.model.Institution;
+
 
 public class MyInterceptor implements HandlerInterceptor {
 
@@ -17,12 +18,12 @@ public class MyInterceptor implements HandlerInterceptor {
 		try {
 			HttpSession session = request.getSession();
 			// 統一攔截（查詢當前session是否存在user）(這裡user會在每次登入成功後，寫入session)
-			Member member = (Member) session.getAttribute("member");
-			if (member != null) {
-				session.setAttribute("member", member);
+			Institution institution = (Institution) session.getAttribute("institution");
+			if (institution != null) {
+				session.setAttribute("member", institution);
 				return true;
 			} else {
-				response.sendRedirect(request.getContextPath() + "/loginPgeEntry.controller");
+				response.sendRedirect(request.getContextPath() + "SignIn");
 			}
 
 		} catch (Exception e) {

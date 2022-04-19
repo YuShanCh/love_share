@@ -9,7 +9,6 @@ import java.util.Map;
 
 import javax.security.auth.message.callback.SecretKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.util.ResourceUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,9 +28,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.mysql.cj.Session;
 
 import of.member.model.*;
+
 
 @Controller
 public class MemberController {
@@ -40,54 +38,7 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 
-	@GetMapping("/landingPge.controller")
-	public String landingPgeEntry(Model m) {
-		return "index";
-	}
-	
-	@GetMapping("/dataTablePge.controller")
-	public String dataTablePge(Model m) {
-		return "dataTable";
-	}
-
-	@GetMapping("/loginPgeEntry.controller")
-	public String loginPgeEntry() {
-		return "login";
-	}
-	
-	@GetMapping("/logout.controller")
-	public String logout(HttpServletRequest request, Model m) {
-		HttpSession session = request.getSession();
-		session.removeAttribute("member");
-		return "index";
-	}
-
-	@GetMapping("/logincheck.controller")
-	@ResponseBody
-	public Member logincheck(HttpServletRequest request, Model m) {
-		HttpSession session = request.getSession();
-
-		Member member = (Member) session.getAttribute("member");
-		
-			m.addAttribute("member",member);
-			session.setAttribute("member", member);
-			return member;
-	}
-
-	@PostMapping("/loging.controller")
-	public String Loging(@RequestParam String aid, @RequestParam String apassword, Model m, HttpSession session) {
-
-		Member member = memberService.getA_id(aid);
-		if (apassword.equals(member.getApassword())) {
-			m.addAttribute("member", member);
-			session.setAttribute("member", member);
-			return "index";
-		} else {
-			return "login";
-		}
-	}
-
-	@GetMapping("/empMember.controller")
+	@GetMapping("/Member.controller")
 	public String processEntry(Model m) {
 		return "mainPage";
 	}
@@ -106,23 +57,22 @@ public class MemberController {
 	public String deleteEntry(Model m) {
 		return "memberDelete";
 	}
-
+	
 	@GetMapping("/upAjax.controller")
 	public String upAjax(Model m) {
 		return "memberUpdateAjax";
 	}
+	
+	@GetMapping("/pageableAjax.controller")
+	public String pageableAjax(Model m) {
+		return "pageable";
+	}
+	
 
 	@PostMapping("/insertmember.controller")
-	public String insert(@RequestParam("aavatar") MultipartFile multipartFile, HttpServletRequest request, @RequestParam String aid, @RequestParam String apassword,
+	public String insert(HttpServletRequest request, @RequestParam String aid, @RequestParam String apassword,
 			@RequestParam String abirthday, @RequestParam String aname, @RequestParam String aphone,
 			@RequestParam String aaddress, Model m) throws IllegalStateException, IOException {
-		
-		String fileName = multipartFile.getOriginalFilename();
-		String path = ResourceUtils.getURL("classpath:static/images").getPath();
-		String filePath = path + "/" + fileName;
-
-		File saveFile = new File(filePath);
-		multipartFile.transferTo(saveFile);
 
 		Member member = new Member();
 		member.setAid(aid);
@@ -131,7 +81,6 @@ public class MemberController {
 		member.setAname(aname);
 		member.setAphone(aphone);
 		member.setAaddress(aaddress);
-		member.setAavatar("images/"+ fileName);
 
 		memberService.insert(member);
 		m.addAttribute("find", member);
@@ -145,16 +94,10 @@ public class MemberController {
 	}
 
 	@PostMapping("/updatemember.controller")
-	public String updateCoupon(@RequestParam("aavatar") MultipartFile multipartFile, HttpServletRequest request, @RequestParam String aid, @RequestParam String apassword,
+	public String updateCoupon(HttpServletRequest request, @RequestParam String aid, @RequestParam String apassword,
 			@RequestParam String abirthday, @RequestParam String aname, @RequestParam String aphone,
-			@RequestParam String aaddress, Model m) throws IllegalStateException, IOException {
-		
-		String fileName = multipartFile.getOriginalFilename();
-		String path = ResourceUtils.getURL("classpath:static/images").getPath();
-		String filePath = path + "/" + fileName;
-
-		File saveFile = new File(filePath);
-		multipartFile.transferTo(saveFile);
+			@RequestParam String aaddress, Model m)
+			throws IllegalStateException, IOException {
 
 		Member member = new Member();
 		member.setAid(aid);
@@ -163,7 +106,6 @@ public class MemberController {
 		member.setAname(aname);
 		member.setAphone(aphone);
 		member.setAaddress(aaddress);
-		member.setAavatar("images/"+ fileName);
 
 		memberService.update(member);
 		m.addAttribute("find", member);
@@ -174,20 +116,11 @@ public class MemberController {
 	@GetMapping("/getAllmember.controller")
 	public String showAllCoupon(Model m) {
 		List<Member> member = memberService.getAllMembers();
-
+		
 		m.addAttribute("find", member);
 		return "mainPage";
 	}
 	
-	@GetMapping("/dataTableAll.controller")
-	@ResponseBody
-	public Map adDetail() {
-		List<Member> member = memberService.getAllMembers();
-		Map<String, Object> map = new HashMap<>();
-		map.put("dataAll", member);
-		return map;
-	}
-
 	@PostMapping("/getByLike.controller")
 	public String showLike(@RequestParam String queryVal, Model m) {
 		List<Member> member = memberService.getByLike(queryVal);
@@ -195,7 +128,7 @@ public class MemberController {
 		m.addAttribute("find", member);
 		return "mainPage";
 	}
-
+	
 	@PostMapping("/getByA_id.controller")
 	public String showA_id(@RequestParam String queryVal, Model m) {
 		Member member = memberService.getA_id(queryVal);
@@ -203,12 +136,12 @@ public class MemberController {
 		m.addAttribute("find", member);
 		return "mainPage";
 	}
-
+	
 	@PostMapping("/getByA_idAjax.controller")
 	@ResponseBody
 	public Member showA_idAjax(@RequestParam String queryVal, Model m) {
 		Member member = memberService.getA_idAjax(queryVal);
 		return member;
 	}
-
+	
 }

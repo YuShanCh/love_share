@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DuckB</title>
+<title>Duck</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
@@ -19,16 +19,10 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
+	data-integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	data-crossorigin="anonymous">
 
 <style>
-#mainImg {
-	width: 90%;
-	height: 100px;
-	margin-left: 16px;
-}
-
 .card-header {
 	text-align: center;
 }
@@ -60,37 +54,37 @@
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
-		crossorigin="anonymous"></script>
+		data-integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+		data-crossorigin="anonymous"></script>
 	<!-- fontawesome javascript  -->
 	<script src="https://kit.fontawesome.com/1a950be563.js"
-		crossorigin="anonymous"></script>
+		data-crossorigin="anonymous"></script>
 	<!-- jquery cdn -->
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
+		data-integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		data-crossorigin="anonymous"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
+		data-integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		data-crossorigin="anonymous"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+		data-integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		data-crossorigin="anonymous"></script>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-		crossorigin="anonymous"></script>
+		data-integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		data-crossorigin="anonymous"></script>
 
-	<section>
+	<data-section>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light" id="Nbar">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="landingPge.controller">首頁!</a>
+				<a class="navbar-brand" href="https://tw.yahoo.com/">Yahoo!</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -117,9 +111,6 @@
 
 						<li class="nav-link active"><a class="nav-link"
 							href="upAjax.controller">修改Ajax</a></li>
-
-						<li class="nav-link active"><a class="nav-link"
-							href="dataTablePge.controller">datatable 分頁</a></li>
 					</ul>
 					<form method="post" class="d-flex" id="search"
 						action="getByLike.controller">
@@ -141,7 +132,7 @@
 							style="max-width: 20rem; max-height: 50rem;">
 							<div class="card-header">Email: ${find.aid}</div>
 							<div class="card-body">
-								<img id="mainImg" src="${find.aavatar}" id="mainImg" />
+								<img src="images/head.png" id="mainImg" />
 								<ul id="ul">
 									<li>姓名:${find.aname}</li>
 									<li>密碼:${find.apassword}</li>
@@ -183,7 +174,7 @@
 								<h5>這裡請輸入商品名稱:</h5>
 								<div style="margin: -26%; width: 170%; margin-top: 5%;"
 									class="input-group input-group-sm mb-3">
-									<span for="coName" class="input-group-text"
+									<span data-for="coName" class="input-group-text"
 										id="inputGroup-sizing-lg">商品名稱:</span> <input
 										placeholder="請輸入商品名稱" type="text" name="pName"
 										id="pNameUpdate" class="form-control"
@@ -196,8 +187,9 @@
 									<div>
 										<img
 											style="margin-top: -50%; border-radius: 15%; margin: 10%; width: 100%; height: 100%;"
-											id="up" name="img" src="images/head.png"><br> <input
-											style="margin: -26%; width: 170%; margin-top: 2%;"
+											id="up" name="img" src="images/head.png"><br>
+
+										<input style="margin: -26%; width: 170%; margin-top: 2%;"
 											class="form-control" type="file" name="pImg" accept="image/*"
 											onchange="loadFile2(event)" required><br>
 

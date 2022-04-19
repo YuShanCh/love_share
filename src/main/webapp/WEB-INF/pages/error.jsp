@@ -24,7 +24,7 @@
 
             <div>失敗!</div>
             <br>
-            <a href="empMember.controller">確認</a>
+            <a href="Member.controller">確認</a>
     </form>
 </body>
 
