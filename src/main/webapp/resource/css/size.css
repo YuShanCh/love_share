@@ -1,17 +1,16 @@
+@charset "UTF-8";
 .size{
     width: 70%;
     height: auto;
     /* border: 1px solid red; */
     margin:0px auto;
 }
+
 .distance{
     margin-top: 10px;
 }
 .distanceDown{
     margin-bottom: 10px;
-}
-.longDistance{
-    margin-top: 3%;
 }
 .lessDistance{
     margin-top: 5px;
@@ -64,38 +63,4 @@
 }
 .bgColorWhite{
     background-color: white;
-}
-.displayFlex{
-    display: flex;    
-}
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-     }
-    }
-header{
-    width: 100%;
-    position:sticky;
-    top: 0%;
-    z-index: 99;
-}
-footer{
-    width: 100%;
-    position:fixed;
-    bottom: 0%;
-    z-index: 99;
-}
-.recordStyle{
-    width: auto;
-    height: 250px;
-    border:1px solid red;
-
 }
